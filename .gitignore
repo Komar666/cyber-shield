@@ -1,0 +1,17 @@
+# Локальные файлы преподавателя и сборки — НЕ публикуются
+
+# читаемый исходник игры (мастер для правок)
+index.dev.html
+
+# шпаргалка с ответами
+TEACHER_NOTES.md
+
+# скрипт обфускации
+build.js
+
+node_modules/
+package.json
+package-lock.json
+.serve.js
+.check.js
+*.output
