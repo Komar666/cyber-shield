@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="'Segoe UI',Arial,sans-serif">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1526"/><stop offset="0.55" stop-color="#0a0f1c"/><stop offset="1" stop-color="#070a12"/>
+    </linearGradient>
+    <radialGradient id="rglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff4d5e" stop-opacity="0.55"/><stop offset="1" stop-color="#ff4d5e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#3fa9ff" stop-opacity="0.55"/><stop offset="1" stop-color="#3fa9ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="seam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff4d5e"/><stop offset="0.5" stop-color="#ffffff"/><stop offset="1" stop-color="#3fa9ff"/>
+    </linearGradient>
+    <linearGradient id="srv" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a3756"/><stop offset="1" stop-color="#121a2e"/>
+    </linearGradient>
+    <radialGradient id="plat" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8fb6ff" stop-opacity="0.35"/><stop offset="1" stop-color="#8fb6ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shieldfill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3fa9ff" stop-opacity="0.30"/><stop offset="1" stop-color="#3fa9ff" stop-opacity="0.05"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="520" fill="url(#sky)"/>
+  <ellipse cx="250" cy="280" rx="430" ry="360" fill="url(#rglow)">
+    <animate attributeName="opacity" values="0.75;1;0.75" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="950" cy="280" rx="430" ry="360" fill="url(#bglow)">
+    <animate attributeName="opacity" values="1;0.75;1" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- perspective floor grid -->
+  <g stroke="#243352" stroke-width="1" opacity="0.55">
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="-40" y1="440" x2="1240" y2="440"/>
+    <line x1="-120" y1="490" x2="1320" y2="490"/>
+    <line x1="600" y1="400" x2="600" y2="520"/>
+    <line x1="600" y1="400" x2="320" y2="520"/>
+    <line x1="600" y1="400" x2="80" y2="520"/>
+    <line x1="600" y1="400" x2="880" y2="520"/>
+    <line x1="600" y1="400" x2="1120" y2="520"/>
+    <line x1="600" y1="400" x2="500" y2="520"/>
+    <line x1="600" y1="400" x2="700" y2="520"/>
+  </g>
+
+  <!-- faint binary columns -->
+  <g font-family="monospace" font-size="15" fill="#ff4d5e" opacity="0.18">
+    <text x="70" y="120">01001011</text><text x="60" y="150">11010010</text>
+    <text x="95" y="180">00110110</text><text x="55" y="210">10101101</text>
+  </g>
+  <g font-family="monospace" font-size="15" fill="#3fa9ff" opacity="0.18">
+    <text x="1030" y="120">ACL ALLOW</text><text x="1050" y="150">RATE 200</text>
+    <text x="1020" y="180">WAF PASS</text><text x="1060" y="210">SCRUB OK</text>
+  </g>
+
+  <!-- central clash seam -->
+  <rect x="596" y="60" width="8" height="380" fill="url(#seam)" opacity="0.5" filter="url(#soft)">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.2s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ===== central target: server + shield emblem ===== -->
+  <ellipse cx="600" cy="428" rx="150" ry="30" fill="url(#plat)"/>
+  <g filter="url(#glow)">
+    <rect x="556" y="236" width="88" height="188" rx="12" fill="url(#srv)" stroke="#3a4a6e" stroke-width="2"/>
+  </g>
+  <rect x="556" y="236" width="88" height="188" rx="12" fill="none" stroke="#46577c" stroke-width="2"/>
+  <g stroke="#2d3b5a" stroke-width="2">
+    <line x1="566" y1="268" x2="634" y2="268"/><line x1="566" y1="300" x2="634" y2="300"/>
+    <line x1="566" y1="356" x2="634" y2="356"/><line x1="566" y1="388" x2="634" y2="388"/>
+  </g>
+  <circle cx="572" cy="252" r="3.2" fill="#3ddc97"><animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/></circle>
+  <circle cx="584" cy="252" r="3.2" fill="#ffb84d"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.3s" repeatCount="indefinite"/></circle>
+  <!-- glowing shield emblem on server -->
+  <g transform="translate(600,330)" filter="url(#glow)">
+    <path d="M0,-34 L30,-23 V3 C30,22 17,35 0,42 C-17,35 -30,22 -30,3 V-23 Z" fill="#101a2e" stroke="#eaf1ff" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M-30,-23 V3 C-30,22 -17,35 0,42 V-34 Z" fill="#ff4d5e" opacity="0.9"/>
+    <path d="M0,-34 L30,-23 V3 C30,22 17,35 0,42 Z" fill="#3fa9ff" opacity="0.9"/>
+    <path d="M6,-14 L-8,6 H2 L-3,22 L12,0 H3 Z" fill="#fff"/>
+  </g>
+
+  <!-- defense energy barrier (left face of server) -->
+  <g filter="url(#soft)">
+    <path d="M520,250 C498,310 498,360 520,418" fill="none" stroke="#3fa9ff" stroke-width="3" opacity="0.7">
+      <animate attributeName="opacity" values="0.4;0.85;0.4" dur="1.8s" repeatCount="indefinite"/>
+    </path>
+    <path d="M512,250 C486,312 486,360 512,418 L540,418 C520,360 520,312 540,250 Z" fill="url(#shieldfill)"/>
+  </g>
+
+  <!-- ===== attack packets streaming from hacker to barrier ===== -->
+  <g fill="#ff4d5e">
+    <rect x="0" y="0" width="9" height="9" rx="2">
+      <animateMotion dur="1.6s" repeatCount="indefinite" path="M320,320 L516,330"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="1.6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="0" y="0" width="7" height="7" rx="2">
+      <animateMotion dur="1.6s" begin="0.5s" repeatCount="indefinite" path="M330,345 L516,352"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="1.6s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="0" y="0" width="8" height="8" rx="2">
+      <animateMotion dur="1.6s" begin="1s" repeatCount="indefinite" path="M322,300 L516,312"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="1.6s" begin="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <!-- impact spark on barrier -->
+  <circle cx="518" cy="334" r="7" fill="#ffd36b" filter="url(#soft)">
+    <animate attributeName="r" values="3;11;3" dur="1.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ===== HACKER (left) ===== -->
+  <g>
+    <!-- red rim -->
+    <path d="M168,400 L163,344 C161,330 172,320 184,316 C186,288 206,262 232,262 C258,262 278,288 280,316 C292,320 303,330 301,344 L296,400 Z"
+          fill="#120a10" stroke="#ff4d5e" stroke-width="2" stroke-linejoin="round" filter="url(#glow)"/>
+    <!-- face void -->
+    <ellipse cx="232" cy="312" rx="26" ry="31" fill="#07060a"/>
+    <circle cx="223" cy="308" r="3.4" fill="#ff4d5e"><animate attributeName="opacity" values="1;0.4;1" dur="2.4s" repeatCount="indefinite"/></circle>
+    <circle cx="241" cy="308" r="3.4" fill="#ff4d5e"><animate attributeName="opacity" values="1;0.4;1" dur="2.4s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <!-- laptop -->
+    <path d="M196,398 L300,398 L312,420 L184,420 Z" fill="#161320" stroke="#3a2b3a" stroke-width="1.5"/>
+    <rect x="212" y="356" width="78" height="46" rx="3" fill="#1a0f16" stroke="#ff4d5e" stroke-width="1.5" transform="skewX(-6)"/>
+    <g font-family="monospace" font-size="9" fill="#ff6b78" opacity="0.85" transform="skewX(-6)">
+      <text x="218" y="370">&gt; flood --t</text><text x="218" y="382">&gt; botnet up</text><text x="218" y="394">&gt; ddos run_</text>
+    </g>
+  </g>
+
+  <!-- ===== ENGINEER (right) ===== -->
+  <g>
+    <!-- torso -->
+    <path d="M1032,400 L1037,352 C1039,338 1028,330 1016,327 C1014,300 996,276 968,276 C940,276 922,300 920,327 C908,330 897,338 899,352 L904,400 Z"
+          fill="#081220" stroke="#3fa9ff" stroke-width="2" stroke-linejoin="round" filter="url(#glow)"/>
+    <!-- head -->
+    <circle cx="968" cy="300" r="30" fill="#0a1424"/>
+    <!-- headset band + ear cup + mic -->
+    <path d="M940,300 A28,28 0 0 1 996,300" fill="none" stroke="#9fd0ff" stroke-width="4"/>
+    <rect x="934" y="296" width="10" height="20" rx="4" fill="#3fa9ff"/>
+    <path d="M942,314 C936,330 946,340 958,340" fill="none" stroke="#9fd0ff" stroke-width="3"/>
+    <circle cx="958" cy="340" r="3" fill="#3ddc97"/>
+    <!-- holo console shield they tend -->
+    <g filter="url(#soft)" opacity="0.9">
+      <path d="M1016,320 l22,8 v16 c0,13 -9,22 -22,27 c-13,-5 -22,-14 -22,-27 v-16 Z" fill="url(#shieldfill)" stroke="#3fa9ff" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M1007,344 l5,5 l10,-11" fill="none" stroke="#3ddc97" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- floating embers -->
+  <g fill="#ffd36b" opacity="0.7">
+    <circle cx="430" cy="200" r="2"><animate attributeName="cy" values="210;180;210" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.8;0" dur="5s" repeatCount="indefinite"/></circle>
+    <circle cx="760" cy="230" r="2"><animate attributeName="cy" values="240;205;240" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="6s" repeatCount="indefinite"/></circle>
+    <circle cx="600" cy="150" r="2.4"><animate attributeName="cy" values="160;120;160" dur="7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="7s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- side labels -->
+  <text x="150" y="455" fill="#ff4d5e" font-size="20" font-weight="700" letter-spacing="6" opacity="0.9">АТАКА</text>
+  <text x="1050" y="455" fill="#3fa9ff" font-size="20" font-weight="700" letter-spacing="6" text-anchor="end" opacity="0.9" transform="translate(0,0)">ЗАЩИТА</text>
+  <text x="600" y="486" fill="#8a95ad" font-size="12" letter-spacing="4" text-anchor="middle" opacity="0.8">// СИМУЛЯТОР КИБЕР-ОБОРОНЫ</text>
+</svg>

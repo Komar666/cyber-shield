@@ -12,6 +12,10 @@ build.js
 # бэкап прежней версии
 index.v1.html.bak
 
+# личные файлы
+VIDEO_PROMPT.md
+preview.html
+
 node_modules/
 package.json
 package-lock.json
