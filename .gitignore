@@ -9,6 +9,9 @@ TEACHER_NOTES.md
 # скрипт обфускации
 build.js
 
+# бэкап прежней версии
+index.v1.html.bak
+
 node_modules/
 package.json
 package-lock.json
