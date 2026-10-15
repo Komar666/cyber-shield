@@ -25,3 +25,6 @@ package-lock.json
 
 # локальные настройки Claude
 .claude/
+
+# шпаргалки преподавателя в Word (ответы)
+*.docx
