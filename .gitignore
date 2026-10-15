@@ -22,3 +22,6 @@ package-lock.json
 .serve.js
 .check.js
 *.output
+
+# локальные настройки Claude
+.claude/
